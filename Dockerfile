@@ -17,12 +17,12 @@ RUN apt-get update -y && \
     curl iproute2 iputils-ping net-tools \
     tcpdump vim x11-xserver-utils xterm && \
     update-ca-certificates && \
-    chmod +x ENTRYPOINT.sh && \
+    chmod +x ENTRYPOINT.sh && alias python=python3 && \
     git clone --depth 1 https://github.com/mininet/mininet.git && \
-    cd mininet && alias python=python3 && ./util/install.sh && cd / &&\
-    git clone https://gerrit.named-data.net/mini-ndn && \
+    cd mininet && ./util/install.sh && cd / &&\
+    git clone https://github.com/named-data/mini-ndn.git && \
     cd mini-ndn && \
-    git pull https://gerrit.named-data.net/mini-ndn refs/changes/26/6426/9 && \
+    git pull https://github.com/dulalsaurab/mini-ndn-11th-ndn-hackathon.git && \
     ./install.sh -a && cd / && \
     rm -rf /var/lib/apt/lists/*
 
